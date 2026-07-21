@@ -1,9 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Privacy Vault</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Vault</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .contexts-area {
+            margin-bottom: 30px;
+            min-height: 200px;
+            border: 2px dashed #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: #94a3b8;
+        }
+        
+        .empty-message {
+            padding: 40px 20px;
+        }
+        
+        .btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+        
+        .btn:active {
+            background-color: #2563eb;
+        }
+    </style>
 </head>
 <body>
-  <h1>Privacy Vault - Coming Soon</h1>
+    <div class="container">
+        <h1>🔐 Privacy Vault</h1>
+        
+        <div class="contexts-area">
+            <div class="empty-message">
+                <p>No contexts yet. Create one to get started!</p>
+            </div>
+        </div>
+        
+        <button class="btn">+ New Context</button>
+    </div>
 </body>
 </html>
+
