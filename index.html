@@ -91,6 +91,41 @@
         .btn:active {
             background-color: #2563eb;
         }
+                .templates-section {
+            margin-bottom: 30px;
+        }
+        
+        .templates-title {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .template-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .template-btn {
+            background-color: #1e293b;
+            color: #f8fafc;
+            border: 1px solid #3b82f6;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .template-btn:active {
+            background-color: #3b82f6;
+        }
+
         
         .back-btn {
             background-color: #64748b;
@@ -147,13 +182,23 @@
         <div id="dashboardScreen" class="screen active">
             <h1>🔐 Privacy Vault</h1>
             
-            <div class="contexts-area" id="contextsArea">
-                <div class="empty-message" id="emptyMessage">
-                    <p>No contexts yet. Create one to get started!</p>
-                </div>
+                    <div class="templates-section">
+            <div class="templates-title">Quick Templates</div>
+            <div class="template-buttons">
+                <button class="template-btn" onclick="addTemplate('Shopping')">🛍️ Shopping</button>
+                <button class="template-btn" onclick="addTemplate('Gaming')">🎮 Gaming</button>
+                <button class="template-btn" onclick="addTemplate('Social Media')">📱 Social</button>
+                <button class="template-btn" onclick="addTemplate('Work')">💼 Work</button>
+                <button class="template-btn" onclick="addTemplate('School')">🎓 School</button>
+            </div>
+        </div>
+        
+        <div class="contexts-area" id="contextsArea">
+                <div class="empty-message">No contexts yet. Create one!</div>
             </div>
             
-            <button class="btn" id="newContextBtn">+ New Context</button>
+            <button class="btn" id="btnNewContext">+ New Context</button>
+
         </div>
         
         <!-- DETAIL SCREEN -->
@@ -177,6 +222,25 @@
 
     <script>
         let currentContextIndex = null;
+                // Add a template context
+        function addTemplate(templateName) {
+            const savedContexts = JSON.parse(localStorage.getItem('contexts')) || [];
+            
+            // Check if it already exists
+            if (savedContexts.find(c => c.name === templateName)) {
+                alert('You already have a "' + templateName + '" context!');
+                return;
+            }
+            
+            savedContexts.push({
+                name: templateName,
+                aliases: []
+            });
+            localStorage.setItem('contexts', JSON.stringify(savedContexts));
+            renderDashboard();
+        }
+        
+
         
         // Random words for alias generator
         const adjectives = ['happy', 'quick', 'bright', 'calm', 'clever', 'swift', 'bold', 'gentle', 'keen', 'lively', 'mighty', 'noble', 'proud', 'quiet', 'rare', 'smart', 'tidy', 'unique', 'vivid', 'warm', 'wise', 'zealous', 'artistic', 'curious', 'daring', 'eager', 'fancy', 'golden', 'happy', 'honest', 'joyful', 'keen', 'kind', 'lively', 'merry', 'neat', 'open', 'perfect', 'quiet', 'radiant', 'sincere', 'trusty', 'unique', 'vivid', 'witty'];
